@@ -1,27 +1,26 @@
 <script lang="ts">
   import type { ITablePage, List } from "./types";
 
+  export let instance: ITablePage;
 
-    
-   export let instance: ITablePage;
-
-   function edit() {
-       instance.edit()
-       instance = instance
-   }
+  function edit() {
+    instance.edit();
+    instance = instance;
+  }
 </script>
 
-<div class="container">
-        {#each instance.list as el}
-        <div on:click={edit}>{el}</div>
-                
-        {/each}
- 
-</div>
+{#if instance.list}
+  <div class="container">
+    {#each instance.list as el}
+      <div >{el}</div>
+    {/each}
+  </div>
+  <button on:click={edit}>EDIT</button>
+{/if}
 
 <style>
-   .container {
+  .container {
     margin: 20px 0;
-       border: 1px solid black;
-   }
+    border: 1px solid black;
+  }
 </style>

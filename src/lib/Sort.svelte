@@ -7,7 +7,10 @@
     
     export let instance: ISortPage
 
+    let user = "stamp"
+
     function sort() {
+        instance.checkPermission(user)
         instance.sort()
         instance = instance
     }

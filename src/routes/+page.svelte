@@ -1,21 +1,21 @@
 <script lang="ts">
   import Sort from "$lib/Sort.svelte";
   import Table from "$lib/Table.svelte";
-  import { List, StampSortService, StampTableService } from "$lib/types";
+  import { FlexList, List, StampList, StampPermissionsService, StampSortService, StampTableService } from "$lib/types";
 
     
-      let arr: number[] = [1,3,2]
 
-      let sortService = new StampSortService();
-      let tableSerive = new StampTableService();
-      let listInstance = new List(arr, sortService, tableSerive);
+      let instance = new StampList();
+      // let instance = new FlexList();
 
+      // fetch ...
+      instance.edit();
 </script>
 
 <div>
-    <h2 on:click={()=>console.log(listInstance)}>{listInstance.list}</h2>
-   <Sort bind:instance={listInstance}/>
-   <Table bind:instance={listInstance} />
+    <h2 on:click={()=>console.log(instance)}>{instance.department}</h2>
+   <Sort bind:instance={instance}/>
+   <Table bind:instance={instance} />
 </div>
 
 <style>
